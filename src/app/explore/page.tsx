@@ -1,16 +1,51 @@
+import { GenreCard } from '@/components/ui/GenreCard';
+import { mockGenres } from '@/lib/data/mockData';
+import Link from 'next/link';
+
 export default function ExplorePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
-          Explore Genres
-        </h1>
-        
-        {/* Genre Grid - Will be implemented with actual data */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {/* Placeholder for genre cards */}
-          <div className="bg-gray-100 rounded-lg p-6 text-center">
-            <p className="text-gray-600">Genre cards will be implemented here</p>
+    <div className="min-h-screen relative" style={{ backgroundColor: '#F5EDF0' }}>
+      {/* Header */}
+      <div className="absolute top-[1rem] left-[1rem] z-50 pl-[0.5rem] pt-[0.5rem]">
+        <Link 
+          href="/" 
+          className="font-Magtis text-[2rem] md:text-[3rem] font-extrabold hover:text-[#FF6B00] transition-colors duration-500"
+          style={{ color: '#4B5D6C' }}
+        >
+          &quot;plak&quot;
+        </Link>
+        <p className="font-Magtis font-bold pl-[1.25rem] text-sm md:text-base" style={{ color: '#4B5D6C' }}>
+          pick a song
+        </p>
+      </div>
+
+      {/* Main Content */}
+      <div className="pt-32 pb-16">
+        <div className="max-w-[1200px] mx-auto px-8">
+          {/* Page Title */}
+          <div className="text-center mb-16">
+            <h1 
+              className="text-5xl md:text-6xl font-normal mb-4"
+              style={{ color: '#4B5D6C', fontFamily: 'Magtis' }}
+            >
+              Explore Genres
+            </h1>
+            <p 
+              className="text-lg md:text-xl max-w-2xl mx-auto"
+              style={{ color: '#4B5D6C', fontFamily: 'Inter' }}
+            >
+              Dive deep into musical genres and discover rare, forgotten treasures waiting to be rediscovered.
+            </p>
+          </div>
+
+          {/* Genre Grid - 2 Column Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {mockGenres.map((genre) => (
+              <GenreCard 
+                key={genre.id} 
+                genre={genre}
+              />
+            ))}
           </div>
         </div>
       </div>
