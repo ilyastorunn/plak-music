@@ -139,9 +139,9 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-          >
-            "plak"
-          </motion.h1>
+                      >
+              &quot;plak&quot;
+            </motion.h1>
           
           <motion.div
             className="mb-12 max-w-2xl mx-auto"
@@ -161,6 +161,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+            className="space-y-6"
           >
             <Link 
               href="/explore"
@@ -170,6 +171,15 @@ export default function HomePage() {
                 EXPLORE NOW!
               </span>
             </Link>
+            
+            <div className="flex justify-center">
+              <Link 
+                href="/select"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-[#D7521D] to-[#4B5D6C] text-white rounded-lg font-medium hover:translate-y-[-2px] transition-all duration-300 shadow-md hover:shadow-lg text-sm"
+              >
+                Album Selection
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

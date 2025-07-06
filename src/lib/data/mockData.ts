@@ -39,6 +39,94 @@ export const mockGenres: Genre[] = [
   }
 ];
 
+// Featured albums for the music selection page
+export const featuredAlbums = [
+  {
+    id: 'album-1',
+    src: '/covers/jazz-classics.webp',
+    artist: 'Miles Davis',
+    albumName: 'Kind of Blue',
+    album: 'Kind of Blue',
+    albumForeignLang: 'Kind of Blue',
+    relDate: '1959',
+    country: 'USA',
+    genre: 'Jazz',
+    songs: ['song-6', 'song-7']
+  },
+  {
+    id: 'album-2', 
+    src: '/covers/folk-treasures.jpg',
+    artist: 'Bob Dylan',
+    albumName: 'The Freewheelin\' Bob Dylan',
+    album: 'The Freewheelin\' Bob Dylan',
+    albumForeignLang: 'The Freewheelin\' Bob Dylan',
+    relDate: '1963',
+    country: 'USA',
+    genre: 'Folk',
+    songs: ['song-14']
+  },
+  {
+    id: 'album-3',
+    src: '/covers/vintage-soul.jpg',
+    artist: 'Aretha Franklin',
+    albumName: 'Lady Soul',
+    album: 'Lady Soul',
+    albumForeignLang: 'Lady Soul',
+    relDate: '1968',
+    country: 'USA',
+    genre: 'Soul',
+    songs: ['song-1', 'song-2']
+  },
+  {
+    id: 'album-4',
+    src: '/covers/jazz-classics.webp',
+    artist: 'John Coltrane',
+    albumName: 'A Love Supreme',
+    album: 'A Love Supreme',
+    albumForeignLang: 'A Love Supreme',
+    relDate: '1965',
+    country: 'USA',
+    genre: 'Jazz',
+    songs: ['song-8', 'song-9']
+  },
+  {
+    id: 'album-5',
+    src: '/covers/folk-treasures.jpg',
+    artist: 'Joni Mitchell',
+    albumName: 'Blue',
+    album: 'Blue',
+    albumForeignLang: 'Blue',
+    relDate: '1971',
+    country: 'Canada',
+    genre: 'Folk',
+    songs: ['song-10', 'song-11']
+  },
+  {
+    id: 'album-6',
+    src: '/covers/vintage-soul.jpg',
+    artist: 'Stevie Wonder',
+    albumName: 'Songs in the Key of Life',
+    album: 'Songs in the Key of Life',
+    albumForeignLang: 'Songs in the Key of Life',
+    relDate: '1976',
+    country: 'USA',
+    genre: 'Soul',
+    songs: ['song-4', 'song-5']
+  },
+  {
+    id: 'album-7',
+    src: '/covers/jazz-classics.webp',
+    artist: 'Billie Holiday',
+    albumName: 'Lady in Satin',
+    album: 'Lady in Satin',
+    albumForeignLang: 'Lady in Satin',
+    relDate: '1958',
+    country: 'USA',
+    genre: 'Jazz',
+    songs: ['song-12', 'song-13']
+  }
+];
+
 export const mockSongs: Song[] = [
   // Electronic
   {

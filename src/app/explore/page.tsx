@@ -31,11 +31,21 @@ export default function ExplorePage() {
               Explore Genres
             </h1>
             <p 
-              className="text-lg md:text-xl max-w-2xl mx-auto"
+              className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
               style={{ color: '#4B5D6C', fontFamily: 'Inter' }}
             >
               Dive deep into musical genres and discover rare, forgotten treasures waiting to be rediscovered.
             </p>
+            
+            {/* Music Selection Link */}
+            <div className="mb-8">
+              <Link
+                href="/select"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-[#D7521D] to-[#4B5D6C] text-white rounded-lg font-Inter font-medium hover:translate-y-[-2px] transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Featured Album Selection
+              </Link>
+            </div>
           </div>
 
           {/* Genre Grid - 2 Column Layout */}
