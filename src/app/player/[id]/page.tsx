@@ -30,69 +30,42 @@ export default function PlayerPage({ params }: PlayerPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="container mx-auto px-4 py-8">
-        {/* Back Navigation */}
-        <div className="mb-8">
-          <Link 
-            href={isAlbumPlayer ? "/select" : `/genre/${song.genreId}`}
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            {isAlbumPlayer ? "Back to Album Selection" : "Back to Genre"}
-          </Link>
-        </div>
+    <div className="min-h-screen relative" style={{ backgroundColor: '#F5EDF0' }}>
+      {/* Back Navigation */}
+      <div className="absolute top-6 left-6 z-10">
+        <Link 
+          href={isAlbumPlayer ? "/select" : `/genre/${song.genreId}`}
+          className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors bg-white bg-opacity-50 backdrop-blur-sm px-4 py-2 rounded-full shadow-md"
+        >
+          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          {isAlbumPlayer ? "Back to Album Selection" : "Back to Genre"}
+        </Link>
+      </div>
 
-        {/* Album Info (if playing from album) */}
-        {isAlbumPlayer && album && (
-          <div className="max-w-2xl mx-auto mb-8 bg-white rounded-2xl shadow-lg p-6">
-            <div className="flex items-center space-x-4">
+      {/* Album Info (if playing from album) */}
+      {isAlbumPlayer && album && (
+        <div className="absolute top-6 right-6 z-10">
+          <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl shadow-lg p-4 max-w-sm">
+            <div className="flex items-center space-x-3">
               <img 
                 src={album.src} 
                 alt={album.albumName}
-                className="w-20 h-20 rounded-lg object-cover"
+                className="w-12 h-12 rounded-lg object-cover"
               />
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">{album.albumName}</h2>
-                <p className="text-lg text-gray-600">{album.artist}</p>
-                <p className="text-sm text-gray-500">{album.relDate} • {album.genre}</p>
+                <h3 className="text-lg font-bold text-gray-900">{album.albumName}</h3>
+                <p className="text-sm text-gray-600">{album.artist}</p>
+                <p className="text-xs text-gray-500">{album.relDate} • {album.genre}</p>
               </div>
             </div>
           </div>
-        )}
-
-        {/* Audio Player */}
-        <AudioPlayer song={song} />
-
-        {/* Additional Song Info */}
-        <div className="max-w-2xl mx-auto mt-8 bg-white rounded-2xl shadow-lg p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Song Details</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <span className="text-gray-500">Genre:</span>
-              <span className="ml-2 text-gray-900 capitalize">{song.genreId}</span>
-            </div>
-            <div>
-              <span className="text-gray-500">Release Date:</span>
-              <span className="ml-2 text-gray-900">
-                {new Date(song.releaseDate).toLocaleDateString()}
-              </span>
-            </div>
-            <div>
-              <span className="text-gray-500">Duration:</span>
-              <span className="ml-2 text-gray-900">
-                {Math.floor(song.duration / 60)}:{(song.duration % 60).toString().padStart(2, '0')}
-              </span>
-            </div>
-            <div>
-              <span className="text-gray-500">Format:</span>
-              <span className="ml-2 text-gray-900">MP3</span>
-            </div>
-          </div>
         </div>
-      </div>
+      )}
+
+      {/* Audio Player - Now handles its own centering */}
+      <AudioPlayer song={song} />
     </div>
   );
 } 
