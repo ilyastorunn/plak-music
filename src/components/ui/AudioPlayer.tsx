@@ -86,7 +86,7 @@ export function AudioPlayer({ song }: AudioPlayerProps) {
       >
         <div className="flex items-center gap-8">
           {/* Left Side - Album Cover */}
-          <div className="relative">
+          <div className="relative z-10">
             <div 
               className="w-80 h-80 rounded-2xl overflow-hidden shadow-lg cursor-pointer relative group"
               onMouseEnter={() => setShowSongInfo(true)}
@@ -123,9 +123,10 @@ export function AudioPlayer({ song }: AudioPlayerProps) {
           </div>
 
           {/* Right Side - Vinyl Record (Half Behind Album) */}
-          <div className="relative flex-1 flex items-center justify-start -ml-40">
+          <div className="relative flex-1 flex items-center justify-start -ml-20">
             <motion.div
-              className="w-80 h-80 relative z-0"
+              className="w-80 h-80 relative"
+              style={{ marginLeft: '-8rem' }}
               animate={{ rotate: isPlaying ? 360 : 0 }}
               transition={{ 
                 duration: 3, 
@@ -142,7 +143,7 @@ export function AudioPlayer({ song }: AudioPlayerProps) {
             </motion.div>
 
             {/* Controls and Info Panel */}
-            <div className="ml-8 flex-1 space-y-6 z-10 relative">
+            <div className="ml-16 flex-1 space-y-6 relative">
               {/* Song Title and Artist */}
               <div className="text-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-2">

@@ -15,7 +15,7 @@ export default function ExplorePage() {
           &quot;plak&quot;
         </Link>
         <p className="font-Magtis font-bold pl-[1.25rem] text-sm md:text-base" style={{ color: '#4B5D6C' }}>
-          pick a song
+          genres
         </p>
       </div>
 
