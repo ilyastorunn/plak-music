@@ -1,14 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Inter } from 'next/font/google';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#F5EDF0' }}>
+    <div
+      className="min-h-screen relative overflow-hidden"
+      style={{ backgroundColor: "#F5EDF0" }}
+    >
       {/* Floating Album Covers */}
       <motion.div
         className="absolute top-20 left-16 w-32 h-32 md:w-40 md:h-40 opacity-80 shadow-lg rounded-lg overflow-hidden"
@@ -22,8 +25,8 @@ export default function HomePage() {
           ease: "easeInOut",
         }}
       >
-        <img 
-          src="/covers/vintage-soul.jpg" 
+        <img
+          src="/covers/vintage-soul.jpg"
           alt="Vintage Soul Album"
           className="w-full h-full object-cover"
         />
@@ -42,8 +45,8 @@ export default function HomePage() {
           delay: 1,
         }}
       >
-        <img 
-          src="/covers/jazz-classics.webp" 
+        <img
+          src="/covers/jazz-classics.webp"
           alt="Jazz Classics Album"
           className="w-full h-full object-cover"
         />
@@ -62,8 +65,8 @@ export default function HomePage() {
           delay: 2,
         }}
       >
-        <img 
-          src="/covers/folk-treasures.jpg" 
+        <img
+          src="/covers/folk-treasures.jpg"
           alt="Folk Treasures Album"
           className="w-full h-full object-cover"
         />
@@ -82,8 +85,8 @@ export default function HomePage() {
           delay: 3,
         }}
       >
-        <img 
-          src="/covers/vintage-soul.jpg" 
+        <img
+          src="/covers/vintage-soul.jpg"
           alt="Vintage Soul Album"
           className="w-full h-full object-cover"
         />
@@ -103,8 +106,8 @@ export default function HomePage() {
           delay: 4,
         }}
       >
-        <img 
-          src="/covers/jazz-classics.webp" 
+        <img
+          src="/covers/jazz-classics.webp"
           alt="Jazz Classics Album"
           className="w-full h-full object-cover"
         />
@@ -123,8 +126,8 @@ export default function HomePage() {
           delay: 5,
         }}
       >
-        <img 
-          src="/covers/folk-treasures.jpg" 
+        <img
+          src="/covers/folk-treasures.jpg"
           alt="Folk Treasures Album"
           className="w-full h-full object-cover"
         />
@@ -135,45 +138,53 @@ export default function HomePage() {
         <div className="text-center max-w-4xl mx-auto">
           <motion.h1
             className="text-[6xl] md:text-8xl lg:text-[72px] font-normal mb-8"
-            style={{ color: '#4B5D6C', fontFamily: 'Magtis' }}
+            style={{ color: "#4B5D6C", fontFamily: "Magtis" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-                      >
-              &quot;plak&quot;
-            </motion.h1>
-          
+          >
+            &quot;plak&quot;
+          </motion.h1>
+
           <motion.div
             className="mb-12 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           >
-            <p className={`text-xl md:text-2xl lg:text-base leading-relaxed ${inter.className}`} style={{ color: '#4B5D6C' }}>
+            <p
+              className={`text-xl md:text-2xl lg:text-base leading-relaxed ${inter.className}`}
+              style={{ color: "#4B5D6C" }}
+            >
               a place to rediscover rare, forgotten and timeless songs.
             </p>
-            <p className={`text-lg md:text-xl lg:text-base italic ${inter.className}`} style={{ color: '#4B5D6C' }}>
+            <p
+              className={`text-lg md:text-xl lg:text-base italic ${inter.className}`}
+              style={{ color: "#4B5D6C" }}
+            >
               Nostalgic vibes - lose yourself to music.
             </p>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
             className="space-y-6"
           >
-            <Link 
+            <Link
               href="/explore"
               className="cta border-none bg-transparent cursor-pointer flex items-center justify-center gap-2 p-0"
             >
-              <span className={`hover-underline-animation relative text-[#4B5E6C] hover:text-[#D7521D] pb-1 text-base tracking-[2px] font-medium ${inter.className} flex items-center group`}>
+              <span
+                className={`hover-underline-animation relative text-[#4B5E6C] hover:text-[#D7521D] pb-1 text-base tracking-[2px] font-medium ${inter.className} flex items-center group`}
+              >
                 EXPLORE NOW!
               </span>
             </Link>
-            
+
             <div className="flex justify-center">
-              <Link 
+              <Link
                 href="/select"
                 className="inline-block px-6 py-3 bg-gradient-to-r from-[#D7521D] to-[#4B5D6C] text-white rounded-lg font-medium hover:translate-y-[-2px] transition-all duration-300 shadow-md hover:shadow-lg text-sm"
               >
@@ -183,28 +194,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </div>
-
-      {/* Custom Styles */}
-      <style jsx>{`
-        .hover-underline-animation:after {
-          content: "";
-          position: absolute;
-          width: 100%;
-          transform: scaleX(0);
-          height: 1px;
-          bottom: 0;
-          left: 0;
-          background-color: #4B5E6C;
-          transform-origin: bottom right;
-          transition: transform 0.5s ease;
-        }
-
-        .cta:hover .hover-underline-animation:after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
-          background-color: #D7521D;
-        }
-      `}</style>
     </div>
   );
 }

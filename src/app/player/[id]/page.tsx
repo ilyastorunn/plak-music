@@ -30,42 +30,52 @@ export default function PlayerPage({ params }: PlayerPageProps) {
   }
 
   return (
-    <div className="min-h-screen relative" style={{ backgroundColor: '#F5EDF0' }}>
+    <div className="min-h-screen relative bg-[#F5EDF0]">
       {/* Back Navigation */}
-      <div className="absolute top-6 left-6 z-10">
+      <div className="absolute top-[1rem] left-[1rem] z-50 pl-[0.5rem] pt-[0.5rem]">
         <Link 
           href={isAlbumPlayer ? "/select" : `/genre/${song.genreId}`}
-          className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors bg-white bg-opacity-50 backdrop-blur-sm px-4 py-2 rounded-full shadow-md"
+          className="font-Magtis text-[2rem] md:text-[3rem] font-extrabold text-[#4B5D6C] hover:text-[#D7521D] transition-colors duration-500"
         >
-          <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          {isAlbumPlayer ? "Back to Album Selection" : "Back to Genre"}
+          &quot;plak&quot;
         </Link>
+        <p className="font-Magtis font-bold text-[#4B5D6C] pl-[1.25rem] text-sm md:text-base">
+          back to selection
+        </p>
       </div>
 
-      {/* Album Info (if playing from album) */}
-      {isAlbumPlayer && album && (
-        <div className="absolute top-6 right-6 z-10">
-          <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl shadow-lg p-4 max-w-sm">
-            <div className="flex items-center space-x-3">
+      {/* Audio Player - Now handles its own centering */}
+      <AudioPlayer song={song} />
+
+      {/* Album Info Card */}
+      {/* {isAlbumPlayer && album && (
+        <div className="max-w-4xl mx-auto mt-2 px-8">
+          <div className="bg-[#E8DCE1] bg-opacity-90 backdrop-blur-sm rounded-3xl shadow-2xl p-6">
+            <div className="flex items-center space-x-6">
               <img 
                 src={album.src} 
                 alt={album.albumName}
-                className="w-12 h-12 rounded-lg object-cover"
+                className="w-24 h-24 rounded-2xl object-cover shadow-lg"
               />
-              <div>
-                <h3 className="text-lg font-bold text-gray-900">{album.albumName}</h3>
-                <p className="text-sm text-gray-600">{album.artist}</p>
-                <p className="text-xs text-gray-500">{album.relDate} • {album.genre}</p>
+              <div className="flex-1">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900">{album.albumName}</h3>
+                    <p className="text-lg text-gray-600 mt-1">{album.artist}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-500">{album.relDate}</p>
+                    <p className="text-sm text-gray-500 mt-1">{album.genre}</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm text-gray-600">Now Playing: <span className="font-medium text-gray-900">{song.title}</span></p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      )}
-
-      {/* Audio Player - Now handles its own centering */}
-      <AudioPlayer song={song} />
+      )} */}
     </div>
   );
 } 
