@@ -10,14 +10,22 @@ interface GenreCardProps {
 
 // Map genre IDs to actual images
 const genreImages: { [key: string]: string } = {
-  'jazz': '/covers/jazz-classics.webp',
-  'folk': '/covers/folk-treasures.jpg',
-  'electronic': '/covers/vintage-soul.jpg',
-  'ambient': '/covers/vintage-soul.jpg',
-  'classical': '/covers/jazz-classics.webp',
-  'indie': '/covers/folk-treasures.jpg',
-  'world': '/covers/vintage-soul.jpg',
-  'experimental': '/covers/jazz-classics.webp',
+  'funk': '/bg/funk.png',
+  'jazz': '/bg/jazz.png',
+  'soul': '/bg/soul.png',
+  'gospel': '/bg/gospel.png',
+  'lo-fi': '/bg/lofi.png',
+  'hiphop': '/bg/hiphop.png',
+  'blues': '/bg/blues.png',
+  'folk': '/bg/folk.png',
+  'reggae': '/bg/reggae.png',
+  'electronic': '/bg/electronic.png',
+  'experimental': '/bg/experimental.png',
+  'disco': '/bg/disco.png',
+  'psych': '/bg/psych.png',
+  'pop': '/bg/pop.png',
+  'rock': '/bg/rock.png',
+  'ambient': '/bg/ambient.png',
 };
 
 export function GenreCard({ genre }: GenreCardProps) {
@@ -25,7 +33,7 @@ export function GenreCard({ genre }: GenreCardProps) {
   
   return (
     <motion.div
-      className="bg-white rounded-lg overflow-hidden cursor-pointer min-h-[320px] flex flex-col"
+      className="bg-white rounded-lg overflow-hidden cursor-pointer min-h-[240px] flex flex-col"
       style={{ 
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         borderRadius: '8px'
@@ -44,18 +52,18 @@ export function GenreCard({ genre }: GenreCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-4 flex flex-col flex-grow">
         {/* Genre Title */}
-        <h3 
-          className="text-2xl font-bold mb-3"
+        {/* <h3 
+          className="text-lg md:text-xl font-bold mb-2"
           style={{ color: '#4B5D6C', fontFamily: 'Magtis' }}
         >
           {genre.name}
-        </h3>
+        </h3> */}
         
         {/* Description - max 2 lines with ellipsis */}
         <p 
-          className="text-base leading-relaxed mb-6 flex-grow"
+          className="text-sm leading-relaxed mb-4 flex-grow"
           style={{ 
             color: '#4B5D6C', 
             fontFamily: 'Inter',
@@ -67,17 +75,15 @@ export function GenreCard({ genre }: GenreCardProps) {
         >
           {genre.description}
         </p>
-
-        {/* Browse Button - Centered */}
         <div className="flex justify-center">
           <Link 
             href={`/genre/${genre.id}`}
-            className="border border-[#4B5D6C] text-[#4B5D6C] hover:bg-[#4B5D6C] hover:text-white transition-colors duration-200 font-medium"
+            className="border border-[#4B5D6C] text-[#4B5D6C] hover:border-[#D7521D] hover:text-[#D7521D] transition-colors duration-500 font-medium"
             style={{ 
-              padding: '12px 24px',
+              padding: '8px 16px',
               borderRadius: '4px',
               fontFamily: 'Inter',
-              fontSize: '16px'
+              fontSize: '14px'
             }}
           >
             Browse

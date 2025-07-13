@@ -2,40 +2,100 @@ import { Genre, Song } from '../types';
 
 export const mockGenres: Genre[] = [
   {
+    id: 'funk',
+    name: 'Funk',
+    imageUrl: '/covers/vintage-soul.jpg',
+    description: 'Get down with the groove. Raw, rhythmic funk that makes you move.'
+  },
+  {
     id: 'jazz',
-    name: 'Jazz Classics',
+    name: 'Jazz',
     imageUrl: '/covers/jazz-classics.webp',
-    description: 'Discover the timeless sounds of jazz legends and hidden gems from the golden age of improvisation and swing.'
+    description: 'Timeless jazz classics and hidden improvisational gems.'
+  },
+  {
+    id: 'soul',
+    name: 'Soul',
+    imageUrl: '/covers/vintage-soul.jpg',
+    description: 'Deep, emotional soul music from the heart.'
+  },
+  {
+    id: 'gospel',
+    name: 'Gospel',
+    imageUrl: '/covers/folk-treasures.jpg',
+    description: 'Spiritual music that lifts the soul and moves the spirit.'
+  },
+  {
+    id: 'lo-fi',
+    name: 'Lo-Fi',
+    imageUrl: '/covers/jazz-classics.webp',
+    description: 'Chill, atmospheric beats perfect for studying and relaxing.'
+  },
+  {
+    id: 'hiphop',
+    name: 'Hip-Hop',
+    imageUrl: '/covers/vintage-soul.jpg',
+    description: 'Raw beats, clever rhymes, and urban storytelling.'
+  },
+  {
+    id: 'blues',
+    name: 'Blues',
+    imageUrl: '/covers/folk-treasures.jpg',
+    description: 'The foundation of modern music. Raw emotion in 12 bars.'
   },
   {
     id: 'folk',
-    name: 'Folk Treasures',
+    name: 'Folk',
     imageUrl: '/covers/folk-treasures.jpg',
-    description: 'Uncover rare folk recordings and acoustic storytelling that captures the essence of human experience.'
+    description: 'Acoustic storytelling and traditional melodies.'
+  },
+  {
+    id: 'reggae',
+    name: 'Reggae',
+    imageUrl: '/covers/vintage-soul.jpg',
+    description: 'Island rhythms and conscious vibes from Jamaica.'
   },
   {
     id: 'electronic',
-    name: 'Vintage Soul',
+    name: 'Electronic',
+    imageUrl: '/covers/jazz-classics.webp',
+    description: 'Digital soundscapes and synthesized explorations.'
+  },
+  {
+    id: 'experimental',
+    name: 'Experimental',
+    imageUrl: '/covers/folk-treasures.jpg',
+    description: 'Boundary-pushing sounds that challenge conventions.'
+  },
+  {
+    id: 'disco',
+    name: 'Disco',
     imageUrl: '/covers/vintage-soul.jpg',
-    description: 'Experience the raw emotion and powerful vocals of classic soul music from the 60s and 70s.'
+    description: 'Dance floor classics from the golden age of nightlife.'
+  },
+  {
+    id: 'psych',
+    name: 'Psychedelic',
+    imageUrl: '/covers/jazz-classics.webp',
+    description: 'Mind-bending sounds and cosmic musical journeys.'
+  },
+  {
+    id: 'pop',
+    name: 'Pop',
+    imageUrl: '/covers/folk-treasures.jpg',
+    description: 'Catchy melodies and timeless hooks that stick with you.'
+  },
+  {
+    id: 'rock',
+    name: 'Rock',
+    imageUrl: '/covers/vintage-soul.jpg',
+    description: 'Raw power, electric energy, and rebellious spirit.'
   },
   {
     id: 'ambient',
-    name: 'Blues Heritage',
-    imageUrl: '/covers/vintage-soul.jpg',
-    description: 'Explore the roots of modern music through authentic blues recordings and forgotten masterpieces.'
-  },
-  {
-    id: 'classical',
-    name: 'Classic Rock',
+    name: 'Ambient',
     imageUrl: '/covers/jazz-classics.webp',
-    description: 'Journey through the evolution of rock music with rare tracks and legendary performances.'
-  },
-  {
-    id: 'world',
-    name: 'World Music',
-    imageUrl: '/covers/vintage-soul.jpg',
-    description: 'Discover musical traditions from around the globe, featuring rare recordings and cultural treasures.'
+    description: 'Atmospheric soundscapes for contemplation and reflection.'
   }
 ];
 

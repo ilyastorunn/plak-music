@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import LoadingWrapper from "@/components/layout/LoadingWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className} style={{ fontFamily: 'Magtis, sans-serif' }}>
-        <LoadingWrapper>
-          {children}
-        </LoadingWrapper>
+        {children}
       </body>
     </html>
   );

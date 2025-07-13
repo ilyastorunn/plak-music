@@ -21,35 +21,25 @@ export default function ExplorePage() {
 
       {/* Main Content */}
       <div className="pt-32 pb-16">
-        <div className="max-w-[1200px] mx-auto px-8">
+        <div className="max-w-[1000px] mx-auto px-8">
           {/* Page Title */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h1 
-              className="text-5xl md:text-6xl font-normal mb-4"
+              className="text-4xl md:text-5xl font-normal mb-4"
               style={{ color: '#4B5D6C', fontFamily: 'Magtis' }}
             >
               Explore Genres
             </h1>
             <p 
-              className="text-lg md:text-xl max-w-2xl mx-auto mb-8"
+              className="text-md md:text-lg max-w-2xl mx-auto italic"
               style={{ color: '#4B5D6C', fontFamily: 'Inter' }}
             >
               Dive deep into musical genres and discover rare, forgotten treasures waiting to be rediscovered.
             </p>
-            
-            {/* Music Selection Link */}
-            <div className="mb-8">
-              <Link
-                href="/select"
-                className="inline-block px-6 py-3 bg-gradient-to-r from-[#D7521D] to-[#4B5D6C] text-white rounded-lg font-Inter font-medium hover:translate-y-[-2px] transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                Featured Album Selection
-              </Link>
-            </div>
           </div>
 
-          {/* Genre Grid - 2 Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Genre Grid - 2 Column Layout with smaller cards */}
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
             {mockGenres.map((genre) => (
               <GenreCard 
                 key={genre.id} 

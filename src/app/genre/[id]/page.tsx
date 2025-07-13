@@ -252,7 +252,7 @@ export default function GenrePage({ params }: GenrePageProps) {
       {/* Listen Button */}
       <div className="flex items-center justify-center bottom-0 mt-[1.5rem] sm:mt-[2rem] md:mt-[2.5rem]">
         <button
-          className="px-[0.8rem] sm:px-[1rem] md:px-[1.25rem] py-[0.4rem] sm:py-[0.5rem] text-white rounded-lg bg-gradient-to-r from-[#D7521D] to-[#4B5D6C] text-xs sm:text-sm md:text-md font-Inter hover:translate-y-[-0.125rem] transition-transform duration-300 shadow-md"
+          className=" border font-medium rounded-sm px-[0.8rem] sm:px-[1rem] md:px-[1.25rem] py-[0.4rem] sm:py-[0.5rem] text-[#4B5D6C] hover:text-[#D7521D] transition-colors duration-500 text-xs sm:text-sm md:text-md font-Inter"
           onClick={(e) => {
             e.stopPropagation();
             router.push(`/player/${songs[selectedIndex].id}`);
