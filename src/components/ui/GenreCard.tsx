@@ -29,11 +29,11 @@ const genreImages: { [key: string]: string } = {
 };
 
 export function GenreCard({ genre }: GenreCardProps) {
-  const imageUrl = genreImages[genre.id] || '/covers/vintage-soul.jpg';
+  const imageUrl = genreImages[genre.id] || '/bg/ambient.png';
   
   return (
     <motion.div
-      className="bg-white rounded-lg overflow-hidden cursor-pointer min-h-[240px] flex flex-col"
+      className="bg-white rounded-lg overflow-hidden cursor-pointer min-h-[180px] flex flex-col"
       style={{ 
         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
         borderRadius: '8px'
@@ -42,8 +42,8 @@ export function GenreCard({ genre }: GenreCardProps) {
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
     >
-      {/* Genre Image - 16:9 aspect ratio */}
-      <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+      {/* Genre Image - 4:3 aspect ratio for smaller cards */}
+      <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
         <img
           src={imageUrl}
           alt={genre.name}
@@ -52,18 +52,10 @@ export function GenreCard({ genre }: GenreCardProps) {
       </div>
 
       {/* Content */}
-      <div className="p-4 flex flex-col flex-grow">
-        {/* Genre Title */}
-        {/* <h3 
-          className="text-lg md:text-xl font-bold mb-2"
-          style={{ color: '#4B5D6C', fontFamily: 'Magtis' }}
-        >
-          {genre.name}
-        </h3> */}
-        
+      <div className="p-3 flex flex-col flex-grow">
         {/* Description - max 2 lines with ellipsis */}
         <p 
-          className="text-sm leading-relaxed mb-4 flex-grow"
+          className="text-xs leading-relaxed mb-3 flex-grow"
           style={{ 
             color: '#4B5D6C', 
             fontFamily: 'Inter',
@@ -75,15 +67,17 @@ export function GenreCard({ genre }: GenreCardProps) {
         >
           {genre.description}
         </p>
+
+        {/* Browse Button - Centered */}
         <div className="flex justify-center">
           <Link 
             href={`/genre/${genre.id}`}
             className="border border-[#4B5D6C] text-[#4B5D6C] hover:border-[#D7521D] hover:text-[#D7521D] transition-colors duration-500 font-medium"
             style={{ 
-              padding: '8px 16px',
+              padding: '6px 12px',
               borderRadius: '4px',
               fontFamily: 'Inter',
-              fontSize: '14px'
+              fontSize: '12px'
             }}
           >
             Browse

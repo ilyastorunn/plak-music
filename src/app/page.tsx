@@ -167,7 +167,7 @@ export default function HomePage() {
               href="/explore"
               className="cta border-none bg-transparent cursor-pointer flex items-center justify-center gap-2 p-0"
             >
-              <span className={`hover-underline-animation relative text-[#4B5E6C] hover:text-[#D7521D] pb-1 text-base tracking-[2px] font-medium ${inter.className} flex items-center group`}>
+              <span className={`hover-underline-animation relative text-[#4B5E6C] hover:text-[#D7521D] pb-1 text-base tracking-[2px] font-medium ${inter.className} flex items-center group transition duration-500`}>
                 EXPLORE NOW!
               </span>
             </Link>
