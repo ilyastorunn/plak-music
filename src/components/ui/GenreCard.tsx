@@ -8,29 +8,7 @@ interface GenreCardProps {
   genre: Genre;
 }
 
-// Map genre IDs to actual images
-const genreImages: { [key: string]: string } = {
-  'funk': '/bg/funk.png',
-  'jazz': '/bg/jazz.png',
-  'soul': '/bg/soul.png',
-  'gospel': '/bg/gospel.png',
-  'lo-fi': '/bg/lofi.png',
-  'hiphop': '/bg/hiphop.png',
-  'blues': '/bg/blues.png',
-  'folk': '/bg/folk.png',
-  'reggae': '/bg/reggae.png',
-  'electronic': '/bg/electronic.png',
-  'experimental': '/bg/experimental.png',
-  'disco': '/bg/disco.png',
-  'psych': '/bg/psych.png',
-  'pop': '/bg/pop.png',
-  'rock': '/bg/rock.png',
-  'ambient': '/bg/ambient.png',
-};
-
 export function GenreCard({ genre }: GenreCardProps) {
-  const imageUrl = genreImages[genre.id] || '/bg/ambient.png';
-  
   return (
     <motion.div
       className="bg-white rounded-lg overflow-hidden cursor-pointer min-h-[180px] flex flex-col"
@@ -45,7 +23,7 @@ export function GenreCard({ genre }: GenreCardProps) {
       {/* Genre Image - 4:3 aspect ratio for smaller cards */}
       <div className="relative w-full" style={{ aspectRatio: '4/3' }}>
         <img
-          src={imageUrl}
+          src={genre.imageUrl}
           alt={genre.name}
           className="w-full h-full object-cover"
         />
@@ -71,7 +49,7 @@ export function GenreCard({ genre }: GenreCardProps) {
         {/* Browse Button - Centered */}
         <div className="flex justify-center">
           <Link 
-            href={`/genre/${genre.id}`}
+            href={`/genre/${encodeURIComponent(genre.name)}`}
             className="border border-[#4B5D6C] text-[#4B5D6C] hover:border-[#D7521D] hover:text-[#D7521D] transition-colors duration-500 font-medium"
             style={{ 
               padding: '6px 12px',
@@ -86,4 +64,4 @@ export function GenreCard({ genre }: GenreCardProps) {
       </div>
     </motion.div>
   );
-} 
+}

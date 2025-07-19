@@ -114,16 +114,56 @@ export default function UploadForm() {
 
     try {
       console.log("Adım 1: Kapak yükleniyor...");
-      const coverPath = `covers/${Date.now()}_${coverFile.name}`;
-      const { error: coverError } = await supabase.storage
+      console.log("Cover file:", coverFile.name, coverFile.type, coverFile.size);
+      
+      // Dosya adını güvenli hale getir
+      const safeFileName = coverFile.name
+        .toLowerCase()
+        .replace(/[^a-z0-9.-]/g, '_');
+      
+      // Benzersiz dosya yolu oluştur
+      const coverPath = `covers/${Date.now()}_${safeFileName}`;
+      
+      // Önce mevcut dosyayı sil (varsa)
+      try {
+        await supabase.storage
+          .from("covers")
+          .remove([coverPath]);
+      } catch (error) {
+        // Dosya zaten yok, sorun değil
+      }
+      
+      // Yeni dosyayı yükle
+      const { error: coverError, data: coverData } = await supabase.storage
         .from("covers")
-        .upload(coverPath, coverFile);
+        .upload(coverPath, coverFile, {
+          cacheControl: '3600',
+          contentType: coverFile.type, // MIME type'ı belirt
+          upsert: true // Üzerine yazma izni ver
+        });
+        
       if (coverError) throw coverError;
-      const {
-        data: { publicUrl },
-      } = supabase.storage.from("covers").getPublicUrl(coverPath);
+      
+      // Public URL'i al
+      const { data: { publicUrl } } = supabase.storage
+        .from("covers")
+        .getPublicUrl(coverPath);
+      
       coverUrl = publicUrl;
+      
+      // URL kontrolü
+      if (!coverUrl || coverUrl.includes('undefined')) {
+        throw new Error('Kapak URL\'si oluşturulamadı');
+      }
+      
       console.log("Adım 1 BAŞARILI: Kapak URLsi:", coverUrl);
+      
+      // URL'nin erişilebilir olduğunu kontrol et
+      const urlCheck = await fetch(coverUrl, { method: 'HEAD' });
+      if (!urlCheck.ok) {
+        throw new Error('Kapak dosyası erişilebilir değil');
+      }
+      
     } catch (err) {
       console.error("HATA ADIM 1 (Kapak Yükleme):", err);
       setError(`Hata (Kapak Yükleme): ${(err as Error).message}`);
@@ -133,16 +173,55 @@ export default function UploadForm() {
 
     try {
       console.log("Adım 2: Şarkı yükleniyor...");
-      const songPath = `songs/${Date.now()}_${songFile.name}`;
+      
+      // Dosya adını güvenli hale getir
+      const safeFileName = songFile.name
+        .toLowerCase()
+        .replace(/[^a-z0-9.-]/g, '_');
+      
+      // Benzersiz dosya yolu oluştur
+      const songPath = `songs/${Date.now()}_${safeFileName}`;
+      
+      // Önce mevcut dosyayı sil (varsa)
+      try {
+        await supabase.storage
+          .from("songs")
+          .remove([songPath]);
+      } catch (error) {
+        // Dosya zaten yok, sorun değil
+      }
+      
+      // Yeni dosyayı yükle
       const { error: songError } = await supabase.storage
         .from("songs")
-        .upload(songPath, songFile);
+        .upload(songPath, songFile, {
+          cacheControl: '3600',
+          contentType: songFile.type,
+          upsert: true
+        });
+        
       if (songError) throw songError;
-      const {
-        data: { publicUrl },
-      } = supabase.storage.from("songs").getPublicUrl(songPath);
+      
+      // Public URL'i al
+      const { data: { publicUrl } } = supabase.storage
+        .from("songs")
+        .getPublicUrl(songPath);
+      
       songUrl = publicUrl;
+      
+      // URL kontrolü
+      if (!songUrl || songUrl.includes('undefined')) {
+        throw new Error('Şarkı URL\'si oluşturulamadı');
+      }
+      
       console.log("Adım 2 BAŞARILI: Şarkı URLsi:", songUrl);
+      
+      // URL'nin erişilebilir olduğunu kontrol et
+      const urlCheck = await fetch(songUrl, { method: 'HEAD' });
+      if (!urlCheck.ok) {
+        throw new Error('Şarkı dosyası erişilebilir değil');
+      }
+      
     } catch (err) {
       console.error("HATA ADIM 2 (Şarkı Yükleme):", err);
       setError(`Hata (Şarkı Yükleme): ${(err as Error).message}`);
